@@ -65,14 +65,14 @@ public final class MecanumDrive {
 
 
         // drive model parameters
-        public double inPerTick = 503;
-        public double lateralInPerTick = inPerTick;
-        public double trackWidthTicks = 0;
+        public double inPerTick = 506.36;
+        public double lateralInPerTick = 392.0776413283265;
+        public double trackWidthTicks = 5904.339935145999;
 
         // feedforward parameters (in tick units)
-        public double kS = 0;
-        public double kV = 0;
-        public double kA = 0;
+        public double kS = 0.8166058312255586;
+        public double kV = 0.00039680239911443657;
+        public double kA = 0.01;
 
         // path profile parameters (in inches)
         public double maxWheelVel = 50;
@@ -140,9 +140,9 @@ public final class MecanumDrive {
             imu = lazyImu.get();
 
             // TODO: reverse encoders if needed
-            leftFront.setDirection(DcMotorSimple.Direction.FORWARD);
-            rightBack.setDirection(DcMotorSimple.Direction.FORWARD);
-            rightFront.setDirection(DcMotorSimple.Direction.FORWARD);
+            leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
+            rightBack.setDirection(DcMotorSimple.Direction.REVERSE);
+            rightFront.setDirection(DcMotorSimple.Direction.REVERSE);
 
             this.pose = pose;
         }
@@ -240,9 +240,9 @@ public final class MecanumDrive {
         rightFront.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         // TODO: reverse motor directions if needed
-        leftFront.setDirection(DcMotorSimple.Direction.FORWARD);
-        rightFront.setDirection(DcMotorSimple.Direction.FORWARD);
-        rightBack.setDirection(DcMotorSimple.Direction.FORWARD);
+        leftFront.setDirection(DcMotorSimple.Direction.REVERSE);
+        rightFront.setDirection(DcMotorSimple.Direction.REVERSE);
+        rightBack.setDirection(DcMotorSimple.Direction.REVERSE);
 
         // TODO: make sure your config has an IMU with this name (can be BNO or BHI)
         //   see https://ftc-docs.firstinspires.org/en/latest/hardware_and_software_configuration/configuring/index.html
